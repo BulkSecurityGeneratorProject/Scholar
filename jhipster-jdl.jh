@@ -1,0 +1,77 @@
+entity Advisor {
+	firstName String,
+	lastName String,
+	email String,
+	phoneNumber String,
+	birthDate LocalDate,
+    occupation String,
+    workPlace String,
+    relationship Relationship
+}
+
+enum Relationship {
+    PARENT, GRANDPARENT, RELATIVE, TUTOR
+}
+
+enum CivilState {
+	WIDOWED,
+    TOGETHER,
+    SEPARATED,
+    DIVORCED
+}
+
+entity Student {
+	firstName String,
+	lastName String,
+    phoneNumber String,
+	birthDate LocalDate,
+    address String,
+    lastSchool String,
+    parentsCivilState CivilState
+}
+
+entity Relative{
+	name String
+    age Number,
+    phoneNumber String,
+    relationship String
+}
+
+entity ProfileQuestion {
+	order Number,
+	questionBody String 
+}
+
+entity ProfileAnswer {
+	question ProfileQuestion,
+    student Student,
+    answer String
+}
+
+entity Requeriments {
+	description String
+}
+
+entity Candidate {
+	idNumber String,
+	firstName String,
+	lastName String,
+	email String,
+    birthDate LocalDate,
+    birthPlace String,
+    civilState CivilState,
+	phoneNumber String,
+    address String,
+    status CandidateStatus,
+	hireDate ZonedDateTime,
+	salary Long,
+	desiredPosition String
+}
+
+enum CandidateStatus {
+	DECLINED,
+    HIRED,
+    PENDING
+}
+
+
